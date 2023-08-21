@@ -53,7 +53,7 @@ class _NavBarState extends State<NavBar> {
               navButton('Contact'),
             ],
           ),
-          Container(
+          SizedBox(
             height: 45,
             child: ElevatedButton(
               style: borderedButtonStyle,

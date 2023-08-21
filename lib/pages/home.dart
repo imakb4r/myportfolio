@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myportfolio/pages/containers/container1.dart';
+import 'package:myportfolio/pages/containers/container2.dart';
+import 'package:myportfolio/pages/containers/container3.dart';
 import 'package:myportfolio/utils/constant.dart';
 import 'package:myportfolio/widgets/navbar.dart';
 
@@ -19,8 +21,16 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
           child: SafeArea(
         child: Container(
-          child: Column(
-            children: const [NavBar(), Container1()],
+          child: const Column(
+            children: [
+              NavBar(),
+              Container1(),
+              SizedBox(
+                height: 30,
+              ),
+              Container2(),
+              Container3(),
+            ],
           ),
         ),
       )),

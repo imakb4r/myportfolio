@@ -1,8 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myportfolio/utils/colors.dart';
 import 'package:myportfolio/utils/constant.dart';
@@ -114,7 +111,7 @@ class _Container1State extends State<Container1> {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: 45,
             child: ElevatedButton.icon(
               style: ButtonStyle(
@@ -224,7 +221,7 @@ class _Container1State extends State<Container1> {
                   ),
                   Row(
                     children: [
-                      Container(
+                      SizedBox(
                         height: 45,
                         child: ElevatedButton.icon(
                           style: ButtonStyle(
@@ -250,7 +247,10 @@ class _Container1State extends State<Container1> {
                 image: AssetImage(illustration1),
               )),
             ),
-          )
+          ),
+          const SizedBox(
+            height: 100,
+          ),
         ],
       ),
     );
