@@ -14,6 +14,9 @@ const String dashboard = 'assets/images/dashboard.png';
 const String vector1 = 'assets/images/vector.png';
 const String vector2 = 'assets/images/vector1.png';
 const String banner = 'assets/images/banner.png';
+const String myImage = 'assets/images/myimage.png';
+
+
 
 //Social Media Icons
 const String icGithub = 'assets/icons/github.png';

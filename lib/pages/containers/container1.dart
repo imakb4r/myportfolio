@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myportfolio/utils/colors.dart';
 import 'package:myportfolio/utils/constant.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Container1 extends StatefulWidget {
   const Container1({super.key});
@@ -13,6 +14,42 @@ class Container1 extends StatefulWidget {
 }
 
 class _Container1State extends State<Container1> {
+  final Uri _fiverrUrl = Uri.parse('https://www.fiverr.com/imakb4r');
+  final Uri _twitterUrl = Uri.parse('https://twitter.com/imakb4r');
+  final Uri _linkedinUrl = Uri.parse('https://www.linkedin.com/in/imakbarr/');
+  final Uri _instagramUrl = Uri.parse('https://www.instagram.com/meem.elif/');
+  final Uri _githubUrl = Uri.parse('https://github.com/imakb4r');
+
+  Future<void> linkedinUrl() async {
+    if (!await launchUrl(_linkedinUrl)) {
+      throw Exception('Could not launch $_linkedinUrl');
+    }
+  }
+
+  Future<void> github() async {
+    if (!await launchUrl(_githubUrl)) {
+      throw Exception('Could not launch $_githubUrl');
+    }
+  }
+
+  Future<void> twitterUrl() async {
+    if (!await launchUrl(_twitterUrl)) {
+      throw Exception('Could not launch $_twitterUrl');
+    }
+  }
+
+  Future<void> instagramUrl() async {
+    if (!await launchUrl(_instagramUrl)) {
+      throw Exception('Could not launch $_instagramUrl');
+    }
+  }
+
+  Future<void> fiverrUrl() async {
+    if (!await launchUrl(_fiverrUrl)) {
+      throw Exception('Could not launch $_fiverrUrl');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
@@ -87,22 +124,30 @@ class _Container1State extends State<Container1> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  linkedinUrl();
+                },
                 icon: Image.asset(iclinkedin),
                 highlightColor: Colors.orange[200],
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  github();
+                },
                 icon: Image.asset(icGithub),
                 highlightColor: Colors.orange[200],
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  twitterUrl();
+                },
                 icon: Image.asset(ictwitter),
                 highlightColor: Colors.orange[200],
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  instagramUrl();
+                },
                 icon: Image.asset(icInstagram),
                 highlightColor: Colors.orange[200],
               ),
@@ -119,7 +164,9 @@ class _Container1State extends State<Container1> {
                       MaterialStateProperty.all(AppColors.primary)),
               icon: const FaIcon(FontAwesomeIcons.code),
               label: const Text("Flutter Developer and Lead Generation Expert"),
-              onPressed: () {},
+              onPressed: () {
+                fiverrUrl();
+              },
             ),
           )
         ],
@@ -186,7 +233,9 @@ class _Container1State extends State<Container1> {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          linkedinUrl();
+                        },
                         icon: Image.asset(iclinkedin),
                         hoverColor: Colors.orange[200],
                       ),
@@ -194,7 +243,9 @@ class _Container1State extends State<Container1> {
                         width: 20,
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          github();
+                        },
                         icon: Image.asset(icGithub),
                         hoverColor: Colors.orange[200],
                       ),
@@ -202,7 +253,9 @@ class _Container1State extends State<Container1> {
                         width: 20,
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          twitterUrl();
+                        },
                         icon: Image.asset(ictwitter),
                         hoverColor: Colors.orange[200],
                       ),
@@ -210,7 +263,9 @@ class _Container1State extends State<Container1> {
                         width: 20,
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          instagramUrl();
+                        },
                         icon: Image.asset(icInstagram),
                         hoverColor: Colors.orange[200],
                       ),
@@ -230,7 +285,10 @@ class _Container1State extends State<Container1> {
                           icon: const FaIcon(FontAwesomeIcons.code),
                           label: const Text(
                               "Flutter Developer and Lead Generation Expert"),
-                          onPressed: () {},
+                          onPressed: () {
+                            print("Button Clicked");
+                            fiverrUrl();
+                          },
                         ),
                       ),
                     ],
@@ -243,9 +301,11 @@ class _Container1State extends State<Container1> {
             child: Container(
               height: 530,
               decoration: const BoxDecoration(
-                  image: DecorationImage(
-                image: AssetImage(illustration1),
-              )),
+                //color: Colors.amberAccent,
+                image: DecorationImage(
+                  image: AssetImage(myImage),
+                ),
+              ),
             ),
           ),
           const SizedBox(

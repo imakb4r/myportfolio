@@ -3,6 +3,7 @@ import 'package:myportfolio/utils/colors.dart';
 import 'package:myportfolio/utils/constant.dart';
 import 'package:myportfolio/utils/style.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -12,6 +13,15 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
+  final Uri _resumeUrl = Uri.parse(
+      'https://d383au3bye3rv1.cloudfront.net/media/public/users/d85c789c-b336-46ea-9a52-b315ff6b8021/resume/ca3d7591-6fef-410c-9a3c-256bfe25151e.pdf');
+
+  Future<void> resumeUrl() async {
+    if (!await launchUrl(_resumeUrl)) {
+      throw Exception('Could not launch $_resumeUrl');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
@@ -35,7 +45,7 @@ class _NavBarState extends State<NavBar> {
     );
   }
 
-    //==========Desktop Navbar============
+  //==========Desktop Navbar============
   Widget desktopNavBar() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -57,7 +67,9 @@ class _NavBarState extends State<NavBar> {
             height: 45,
             child: ElevatedButton(
               style: borderedButtonStyle,
-              onPressed: () {},
+              onPressed: () {
+                resumeUrl();
+              },
               child: Text(
                 "Download Resume",
                 style: TextStyle(
@@ -75,7 +87,9 @@ class _NavBarState extends State<NavBar> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          resumeUrl();
+        },
         child: Text(
           text,
           style: const TextStyle(
@@ -91,8 +105,8 @@ class _NavBarState extends State<NavBar> {
     return Container(
       width: 100,
       height: 200,
-      decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage(logo))),
+      decoration:
+          const BoxDecoration(image: DecorationImage(image: AssetImage(logo))),
     );
   }
 }
